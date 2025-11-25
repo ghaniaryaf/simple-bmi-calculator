@@ -1,36 +1,211 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BMI Calculator
 
-## Getting Started
+A modern, responsive BMI (Body Mass Index) calculator built with React and TypeScript. Features a beautiful UI with real-time calculations and support for both metric and imperial units.
 
-First, run the development server:
+![BMI Calculator](https://via.placeholder.com/600x400/3b82f6/ffffff?text=BMI+Calculator)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- **Dual Unit Support**: Switch between metric (kg, cm) and imperial (lbs, inches) units
+- **Modern UI**: Clean, responsive design with smooth animations
+- **Real-time Results**: Instant BMI calculation with visual feedback
+- **Color-coded Categories**: Visual indicators for different BMI ranges
+- **Responsive Design**: Works perfectly on desktop and mobile devices
+- **TypeScript**: Fully typed for better development experience
+- **Accessible**: Proper ARIA labels and keyboard navigation
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/bmi-calculator.git
+   cd bmi-calculator
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:3000`
+
+## 🛠️ Usage
+
+### Basic Usage
+
+```jsx
+import BMICalculator from './components/BMICalculator';
+
+function App() {
+  return (
+    <div className="App">
+      <BMICalculator />
+    </div>
+  );
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### As a Standalone Component
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The BMI calculator can be easily integrated into any React project:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```jsx
+function HealthApp() {
+  return (
+    <div>
+      <h1>Health Dashboard</h1>
+      <BMICalculator />
+      {/* Other health components */}
+    </div>
+  );
+}
+```
 
-## Learn More
+## 📊 BMI Categories
 
-To learn more about Next.js, take a look at the following resources:
+| Category | BMI Range | Color Indicator |
+|----------|-----------|-----------------|
+| Underweight | < 18.5 | Blue |
+| Normal weight | 18.5 - 24.9 | Green |
+| Overweight | 25 - 29.9 | Orange |
+| Obese | ≥ 30 | Red |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Styling
 
-## Deploy on Vercel
+The component uses inline styles but can be easily customized:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```jsx
+// Custom color scheme
+const customStyles = {
+  primaryColor: '#8B5CF6',
+  secondaryColor: '#A78BFA',
+  // ... add more custom styles
+};
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<BMICalculator customStyles={customStyles} />
+```
+
+### Props
+
+The component currently accepts the following props:
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `initialUnit` | `'metric' \| 'imperial'` | `'metric'` | Default unit system |
+| `showDisclaimer` | `boolean` | `true` | Show health disclaimer |
+| `className` | `string` | `''` | Additional CSS class |
+
+## 🧮 Calculation Methods
+
+### Metric System
+```
+BMI = weight (kg) / (height (m)²)
+```
+
+### Imperial System
+```
+BMI = (weight (lbs) / (height (inches)²)) × 703
+```
+
+## 📱 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🏗️ Project Structure
+
+```
+bmi-calculator/
+├── components/
+│   └── BMICalculator.tsx
+├── styles/
+│   └── globals.css
+├── public/
+│   └── favicon.ico
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+```bash
+npm run build
+# Deploy to Vercel
+```
+
+### Netlify
+
+```bash
+npm run build
+# Drag and drop the build folder to Netlify
+```
+
+### Static Export
+
+```bash
+npm run build
+npm run export
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## ⚠️ Disclaimer
+
+This BMI calculator is for informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+
+## 🐛 Known Issues
+
+- None currently reported
+
+## 📞 Support
+
+If you have any questions or run into issues, please:
+
+1. Check the [existing issues](https://github.com/your-username/bmi-calculator/issues)
+2. Create a new issue with detailed information
+
+## 🙏 Acknowledgments
+
+- React team for the amazing framework
+- TypeScript for type safety
+- Modern CSS for beautiful styling
+
+---
+
+**Made with ❤️ and React**
