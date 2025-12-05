@@ -1,211 +1,269 @@
-# BMI Calculator
+# 🏋️ Advanced BMI Calculator
 
-A modern, responsive BMI (Body Mass Index) calculator built with React and TypeScript. Features a beautiful UI with real-time calculations and support for both metric and imperial units.
+A sophisticated BMI (Body Mass Index) calculator with multiple calculation methods, age-stage classifications, and personalized health recommendations.
 
-![BMI Calculator](https://via.placeholder.com/600x400/3b82f6/ffffff?text=BMI+Calculator)
+![BMI Calculator Preview](https://img.shields.io/badge/Status-Functional-brightgreen)
+![React](https://img.shields.io/badge/React-18.x-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ## ✨ Features
 
-- **Dual Unit Support**: Switch between metric (kg, cm) and imperial (lbs, inches) units
-- **Modern UI**: Clean, responsive design with smooth animations
-- **Real-time Results**: Instant BMI calculation with visual feedback
-- **Color-coded Categories**: Visual indicators for different BMI ranges
-- **Responsive Design**: Works perfectly on desktop and mobile devices
-- **TypeScript**: Fully typed for better development experience
-- **Accessible**: Proper ARIA labels and keyboard navigation
+### 🔢 **Multiple BMI Formulas**
+- **Standard BMI** - Traditional formula used worldwide
+- **WHO Adjusted** - Age and gender-adjusted calculations
+- **New Formula** - Advanced height-corrected calculation
+
+### 👤 **Personalized Calculations**
+- **Gender-specific** - Different calculations for males/females
+- **6 Age Stages** - From infants to elderly (0-2, 2-12, 13-19, 20-39, 40-59, 60+)
+- **Unit Conversion** - Switch between metric (kg/cm) and imperial (lbs/inches)
+
+### 📊 **Detailed Results**
+- BMI score with color-coded categories
+- Health risk assessment
+- Personalized recommendations
+- Age-stage visualization
+- Calculation method explanation
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-
-- Node.js (version 14 or higher)
-- npm or yarn
+- Node.js 16+ and npm/yarn
+- React 18+
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/bmi-calculator.git
-   cd bmi-calculator
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. **Run the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
-
-## 🛠️ Usage
-
-### Basic Usage
-
-```jsx
-import BMICalculator from './components/BMICalculator';
-
-function App() {
-  return (
-    <div className="App">
-      <BMICalculator />
-    </div>
-  );
-}
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/bmi-calculator.git
+cd bmi-calculator
 ```
 
-### As a Standalone Component
-
-The BMI calculator can be easily integrated into any React project:
-
-```jsx
-function HealthApp() {
-  return (
-    <div>
-      <h1>Health Dashboard</h1>
-      <BMICalculator />
-      {/* Other health components */}
-    </div>
-  );
-}
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
 ```
 
-## 📊 BMI Categories
-
-| Category | BMI Range | Color Indicator |
-|----------|-----------|-----------------|
-| Underweight | < 18.5 | Blue |
-| Normal weight | 18.5 - 24.9 | Green |
-| Overweight | 25 - 29.9 | Orange |
-| Obese | ≥ 30 | Red |
-
-## 🎨 Customization
-
-### Styling
-
-The component uses inline styles but can be easily customized:
-
-```jsx
-// Custom color scheme
-const customStyles = {
-  primaryColor: '#8B5CF6',
-  secondaryColor: '#A78BFA',
-  // ... add more custom styles
-};
-
-<BMICalculator customStyles={customStyles} />
+3. Run the development server:
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-### Props
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The component currently accepts the following props:
+## 📁 Project Structure
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `initialUnit` | `'metric' \| 'imperial'` | `'metric'` | Default unit system |
-| `showDisclaimer` | `boolean` | `true` | Show health disclaimer |
-| `className` | `string` | `''` | Additional CSS class |
+```
+src/
+├── components/
+│   ├── BMICalculator.tsx    # Main container component
+│   ├── BMIForm.tsx          # Input form component
+│   └── BMIResults.tsx       # Results display component
+├── utils/
+│   └── bmiCalculations.ts   # All calculation logic
+├── types/
+│   └── bmiTypes.ts          # TypeScript interfaces and types
+└── styles/
+    └── global.css           # Global styles (optional)
+```
 
 ## 🧮 Calculation Methods
 
-### Metric System
+### 1. **Standard BMI**
 ```
-BMI = weight (kg) / (height (m)²)
+BMI = weight (kg) / height (m)²
+```
+- Most widely used formula
+- Same for all ages and genders
+
+### 2. **WHO Adjusted BMI**
+```
+Adjusted BMI = Standard BMI × Age Factor × Gender Factor
+```
+- Accounts for age and gender differences
+- Better accuracy for children and elderly
+
+### 3. **New BMI Formula**
+```
+New BMI = 1.3 × weight (kg) / height (m)²·⁵
+```
+- Addresses height bias in standard formula
+- Better for very tall or short individuals
+
+## 👶 Age Stages Classification
+
+| Age Range | Stage | Special Considerations |
+|-----------|-------|------------------------|
+| 0-2 years | Infant | WHO growth chart based |
+| 2-12 years | Child | CDC percentiles (5th-95th) |
+| 13-19 years | Teen | Growth patterns monitored |
+| 20-39 years | Young Adult | Peak health assessment |
+| 40-59 years | Adult | Metabolic health focus |
+| 60+ years | Elder | Geriatric health guidelines |
+
+## 📈 BMI Categories
+
+### Adults (20+ years)
+| BMI Range | Category | Color | Health Risk |
+|-----------|----------|-------|-------------|
+| < 18.5 | Underweight | 🔵 Blue | Nutritional deficiency |
+| 18.5-24.9 | Normal | 🟢 Green | Low risk |
+| 25-29.9 | Overweight | 🟡 Yellow | Moderate risk |
+| ≥ 30 | Obese | 🔴 Red | High risk |
+
+### Children/Teens (2-19 years)
+| Percentile | Category | Interpretation |
+|------------|----------|----------------|
+| < 5th | Underweight | Below normal growth |
+| 5th-84th | Healthy weight | Normal growth pattern |
+| 85th-94th | Overweight | Monitor growth |
+| ≥ 95th | Obese | High weight for age |
+
+## 🎯 Usage Instructions
+
+1. **Select Measurement System**
+   - Choose Metric (kg, cm) or Imperial (lbs, inches)
+
+2. **Choose Calculation Method**
+   - Standard: Basic calculation
+   - WHO Adjusted: Age/gender adjusted
+   - New Formula: Height-corrected
+
+3. **Enter Personal Information**
+   - Gender: Male or Female
+   - Age: Your current age in years
+   - Weight and Height
+
+4. **Calculate BMI**
+   - Click "Calculate BMI" button
+
+5. **Review Results**
+   - View your BMI score and category
+   - Expand details for personalized recommendations
+
+## 🛠️ Technical Details
+
+### Technologies Used
+- **React 18** with TypeScript
+- **Functional Components** with Hooks
+- **Inline CSS** for styling
+- **Clean Architecture** with separation of concerns
+
+### Key Design Decisions
+1. **Single Responsibility Principle** - Each component has one job
+2. **Type Safety** - Full TypeScript implementation
+3. **Performance** - Memoized calculations where needed
+4. **Accessibility** - Semantic HTML and keyboard navigation
+5. **Responsive Design** - Works on mobile and desktop
+
+### State Management
+```typescript
+// Main state variables
+const [weight, setWeight] = useState<string>('');
+const [height, setHeight] = useState<string>('');
+const [age, setAge] = useState<string>('');
+const [gender, setGender] = useState<'male' | 'female'>('male');
+const [calculationMethod, setCalculationMethod] = useState<'standard' | 'who' | 'new'>('standard');
+const [unit, setUnit] = useState<'metric' | 'imperial'>('metric');
 ```
 
-### Imperial System
-```
-BMI = (weight (lbs) / (height (inches)²)) × 703
-```
+## 📱 Responsive Design
 
-## 📱 Browser Support
+The calculator is fully responsive and works on:
+- 📱 Mobile phones (320px and up)
+- 💻 Tablets (768px and up)
+- 🖥️ Desktop (1024px and up)
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+## 🧪 Testing
 
-## 🏗️ Project Structure
-
-```
-bmi-calculator/
-├── components/
-│   └── BMICalculator.tsx
-├── styles/
-│   └── globals.css
-├── public/
-│   └── favicon.ico
-├── package.json
-├── tsconfig.json
-└── README.md
-```
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
+Run the test suite:
 ```bash
-npm run build
-# Deploy to Vercel
+npm test
+# or
+yarn test
 ```
 
-### Netlify
+Test coverage includes:
+- Unit tests for calculation functions
+- Component rendering tests
+- User interaction tests
+- Edge case validations
 
-```bash
-npm run build
-# Drag and drop the build folder to Netlify
+## 🔧 Customization
+
+### Adding New Age Categories
+Edit `ageCategories` in `types/bmiTypes.ts`:
+```typescript
+{ min: 70, max: 200, label: 'Senior (70+)' }
 ```
 
-### Static Export
+### Adding New Calculation Methods
+1. Add method to `calculationMethods` array
+2. Implement function in `bmiCalculations.ts`
+3. Add case in `calculateBMI` function
 
-```bash
-npm run build
-npm run export
+### Styling Customization
+Modify inline styles in components or create CSS modules:
+```typescript
+// Add to BMICalculator.tsx
+import styles from './BMICalculator.module.css';
 ```
+
+## ⚠️ Medical Disclaimer
+
+**Important:** This BMI calculator is for educational and informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment.
+
+- BMI does not measure body fat percentage
+- Does not account for muscle mass, bone density, or body composition
+- Not suitable for pregnant women or competitive athletes
+- Always consult with healthcare professionals for health assessments
+
+## 📄 License
+
+MIT License - See [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
-We welcome contributions! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
+### Development Guidelines
+- Follow TypeScript best practices
+- Write meaningful commit messages
+- Add tests for new features
+- Update documentation as needed
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📊 Data Sources
 
-## ⚠️ Disclaimer
+1. **WHO Growth Standards** - For infants and children
+2. **CDC Growth Charts** - For children and teens
+3. **NIH BMI Guidelines** - For adults
+4. **Oxford University Research** - For new BMI formula
 
-This BMI calculator is for informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+## 🔍 References
 
-## 🐛 Known Issues
-
-- None currently reported
-
-## 📞 Support
-
-If you have any questions or run into issues, please:
-
-1. Check the [existing issues](https://github.com/your-username/bmi-calculator/issues)
-2. Create a new issue with detailed information
+1. World Health Organization. (2006). *BMI classification*
+2. Centers for Disease Control and Prevention. (2000). *Growth Charts*
+3. Trefethen, N. (2013). *A new body mass index*
+4. National Institutes of Health. (1998). *Clinical Guidelines*
 
 ## 🙏 Acknowledgments
 
-- React team for the amazing framework
-- TypeScript for type safety
-- Modern CSS for beautiful styling
+- World Health Organization for BMI standards
+- CDC for growth percentile data
+- Oxford University for height-corrected BMI research
+- All contributors and testers
 
 ---
 
-**Made with ❤️ and React**
+**Made with ❤️ for health-conscious developers**
+
+For questions or support, please [open an issue](https://github.com/yourusername/bmi-calculator/issues) or contact the maintainers.
