@@ -199,7 +199,7 @@ Test coverage includes:
 ### Adding New Age Categories
 Edit `ageCategories` in `types/bmiTypes.ts`:
 ```typescript
-{ min: 70, max: 200, label: 'Senior (70+)' }
+{ min: 60, max: 200, label: 'Senior (60+)' }
 ```
 
 ### Adding New Calculation Methods

@@ -27,5 +27,5 @@ export const ageCategories: AgeCategory[] = [
 export const calculationMethods = [
   { value: 'standard', label: 'Standard', desc: 'Basic BMI' },
   { value: 'who', label: 'WHO Adjusted', desc: 'Age & gender' },
-  { value: 'new', label: 'New Formula', desc: 'Advanced' }
+  { value: 'new', label: 'New Formula', desc: 'Trefethen, N. (2013)' }
 ];

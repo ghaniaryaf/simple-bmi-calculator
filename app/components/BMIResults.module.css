@@ -1,0 +1,199 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main container */
+.bmiResults {
+  margin-top: 24px;
+  padding: 24px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Header section */
+.bmiResultsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.bmiResultsTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* Toggle button */
+.bmiResultsToggleBtn {
+  padding: 8px 16px;
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bmiResultsToggleBtn:hover {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+/* Score section */
+.bmiResultsScore {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.bmiResultsLabel {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.bmiResultsValue {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+.bmiResultsCategory {
+  text-align: right;
+}
+
+.bmiResultsCategoryText {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Detail sections */
+.bmiResultsDetailSection {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.bmiResultsDetailTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.bmiResultsDetailText {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Recommendations */
+.bmiResultsRecommendations {
+  margin-bottom: 20px;
+}
+
+.bmiResultsRecommendationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bmiResultsRecommendationItem {
+  padding: 12px;
+  background: #f0f9ff;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #0369a1;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.bmiResultsBullet {
+  font-size: 12px;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+/* Footnote */
+.bmiResultsFootnote {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.bmiResultsFootnoteTitle {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.bmiResultsDisclaimer {
+  margin-top: 12px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* Age categories grid */
+.bmiResultsAgeCategories {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #64748b;
+  text-align: left;
+}
+
+.bmiResultsAgeCategoriesTitle {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.ageCategoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.ageCategoryItem {
+  padding: 8px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  transition: background 0.2s;
+}
+
+.ageCategoryItem.active {
+  background: #dbeafe;
+}
+
+.ageCategoryLabel {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.ageCategoryRange {
+  font-size: 11px;
+  opacity: 0.7;
+}

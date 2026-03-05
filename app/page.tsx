@@ -1,9 +1,9 @@
-import BMICalculator from './components/BMICalc';
+import BMICalc from "./components/BMICalc";
 
 function App() {
   return (
     <div className="App">
-      <BMICalculator />
+      <BMICalc />
     </div>
   );
 }
