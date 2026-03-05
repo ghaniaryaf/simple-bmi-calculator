@@ -1,6 +1,6 @@
-# 🏋️ Advanced BMI Calculator
+# 🏋️ Simple BMI Calculator
 
-A sophisticated BMI (Body Mass Index) calculator with multiple calculation methods, age-stage classifications, and personalized health recommendations.
+A "very simple" BMI (Body Mass Index) calculator with multiple calculation methods, age-stage classifications, and health recommendations.
 
 ![BMI Calculator Preview](https://img.shields.io/badge/Status-Functional-brightgreen)
 ![React](https://img.shields.io/badge/React-18.x-blue)
@@ -55,22 +55,6 @@ yarn dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 📁 Project Structure
-
-```
-src/
-├── components/
-│   ├── BMICalculator.tsx    # Main container component
-│   ├── BMIForm.tsx          # Input form component
-│   └── BMIResults.tsx       # Results display component
-├── utils/
-│   └── bmiCalculations.ts   # All calculation logic
-├── types/
-│   └── bmiTypes.ts          # TypeScript interfaces and types
-└── styles/
-    └── global.css           # Global styles (optional)
-```
 
 ## 🧮 Calculation Methods
 
